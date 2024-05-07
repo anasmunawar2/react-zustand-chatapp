@@ -89,7 +89,7 @@
       }
     }
     button {
-      padding: 10px;
+      padding: 2px;
       background-color: rgba(230, 74, 105, 0.553);
       color: white;
       border: none;
@@ -101,7 +101,7 @@
       }
 
       &.logout {
-        padding: 10px;
+        padding: 2px;
         background-color: #1a73e8;
       }
     }
