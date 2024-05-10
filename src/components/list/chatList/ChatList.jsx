@@ -4,7 +4,7 @@ import AddUser from "./addUser/AddUser";
 import { useUserStore } from "../../../lib/userStore";
 import { doc, getDoc, onSnapshot, updateDoc } from "firebase/firestore";
 import { db } from "../../../lib/firebase";
-// import { useChatStore } from "../../../lib/userStore";
+import { useChatStore } from "../../../lib/chatStore";
 
 const ChatList = () => {
   const [chats, setChats] = useState([]);
@@ -12,7 +12,7 @@ const ChatList = () => {
   const [input, setInput] = useState("");
 
   const { currentUser } = useUserStore();
-  // const { chatId, changeChat } = useChatStore();
+  const { chatId, changeChat } = useChatStore();
 
   useEffect(() => {
     const unSub = onSnapshot(
@@ -58,7 +58,7 @@ const ChatList = () => {
       await updateDoc(userChatsRef, {
         chats: userChats,
       });
-      // changeChat(chat.chatId, chat.user);
+      changeChat(chat.chatId, chat.user);
     } catch (err) {
       console.log(err);
     }
